@@ -54,10 +54,12 @@ class LinkedList:
                 bantu = bantu.next
                 posisi = posisi +1
             return bantu
+
     def addFirst(self, data):
         newNode = Node(data)
         newNode.next = self.awal
         self.awal = newNode
+
     def addLast(self, data):
         if self.isEmpty():
             self.addFirst(data)
@@ -65,6 +67,7 @@ class LinkedList:
             last = self.getLast()
             newNode = Node(data)
             last.next = newNode
+
     def add(self, index, data):
         if index==1:
             self.addFirst(data)
@@ -75,12 +78,14 @@ class LinkedList:
             prevNode.next = newNode
         else:
             print("Posisi Sisip Invalid")
+
     def update(self,index,data):
         nodeUpdate = self.get(index)
         if nodeUpdate is None:
             print("Data tidak ditemukan")
         else:
             nodeUpdate.info = data
+
     def removeFirst(self):
         if self.isEmpty():
             print("Penghapusan gagal karena list kosong")
@@ -88,6 +93,7 @@ class LinkedList:
             first = self.getFirst()
             self.awal = first.next
             del first
+
     def remove(self, index):
         if self.isEmpty():
             print("Penghapusan gagal karena list kosong")
@@ -102,5 +108,10 @@ class LinkedList:
                     deletedNode = prevNode.next
                     prevNode.next = deletedNode.next
                     del deletedNode
+
     def removeLast(self):
         self.remove(self.size())
+
+    def removeAll(self):
+        while not self.isEmpty():
+            self.removeFirst();
